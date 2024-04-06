@@ -122,7 +122,7 @@ struct LocalDerivationGoal : public DerivationGoal
     OutputPathMap scratchOutputs;
 
     uid_t sandboxUid() { return usingUserNamespace ? (!buildUser || buildUser->getUIDCount() == 1 ? 1000 : 0) : buildUser->getUID(); }
-    gid_t sandboxGid() { return usingUserNamespace ? (!buildUser || buildUser->getUIDCount() == 1 ? 100  : 0) : buildUser->getGID(); }
+    gid_t sandboxGid() { return usingUserNamespace ? (!buildUser || buildUser->getGIDCount() == 1 ? 100  : 0) : buildUser->getGID(); }
 
     const static Path homeDir;
 
